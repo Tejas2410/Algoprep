@@ -1,0 +1,94 @@
+
+// string input -> String str = scn.nextLine(); -> full line
+				  String str = scn.next(); -> till space
+
+
+// char input -> char ch = scn.nextLine().chatAt(0);
+
+
+Typecasting in char
+~~~~~~~~~~~~~~~~~~~
+
+1. char to int (small (1 byte) to big(4 bytes)) -> implicit typecasting
+
+int x =  'A'; 
+System.out.println(x); // A 
+
+
+2. int to char (big (4 byte) to small(1 bytes)) -> complicated (typecast always explicitly)
+
+char ch = 65;
+System.out.println(x); // A 
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ex. 1 -> Toggle Character
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//string -> char array -> print char array
+import java.util.Scanner;
+
+public class Toggle_Character_Array_01 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String st = scn.nextLine(); // i/p Tejas
+        char[] ch = new char[st.length()];
+
+        for(int i = 0; i < ch.length ; i++) {
+            ch[i] = st.charAt(i);
+            if(ch[i] >=65 && ch[i] <= 90){
+                ch[i] = (char)(ch[i]+32);
+            } else {
+                ch[i] = (char)(ch[i] - 32);
+            }
+            System.out.print(ch[i]);
+        }
+    }
+}
+
+i/p
+Tejas
+
+o/p
+tEJAS
+--------------------------------------------------------------------------------------------------------------------
+
+Ex. 2 -> Reverse String -> Refer Page 10
+~~~~~~~~~~~~~~~~~~~~~~~
+
+//String -> char array -> string
+//    str.toCharArray() -> str.valueOf(ch)
+import java.util.Scanner;
+
+public class String_Reverse_02 {
+
+    public static String reverse(String str) {
+        char[] ch = str.toCharArray();
+
+        int low = 0;
+        int high = ch.length - 1;
+
+        while(low < high) {
+            char temp = ch[low];
+            ch[low] = ch[high];
+            ch[high] = temp;
+            low++;
+            high--;
+        }
+       String ans = str.valueOf(ch);
+        return ans;
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String str = scn.nextLine();
+
+        System.out.println(reverse(str));
+    }
+}
+
+i/p
+tejas
+
+o/p
+sajet
+--------------------------------------------------------------------------------------------------------------------

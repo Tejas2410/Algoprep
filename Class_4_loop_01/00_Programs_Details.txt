@@ -1,0 +1,5 @@
+1 -> marks 35 plus pass or fail
+2 -> even and odd
+3 -> divisible by 3 or 5
+4 -> divisible by 3 and 5
+55 -> max of 3 no.

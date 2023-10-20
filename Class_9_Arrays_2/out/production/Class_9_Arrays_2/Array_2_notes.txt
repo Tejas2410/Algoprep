@@ -1,0 +1,88 @@
+
+								Array 2
+								~~~~~~~
+Ex. 1 -> Reverse Part of Array from Start Index to End Index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Program1 {
+    public static void reverse(int[] arr , int low , int high) {
+        while(low < high) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+            low++;
+            high--;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        for(int i = 0; i < n ; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int low = scn.nextInt();
+        int high = scn.nextInt();
+
+        reverse(arr , low , high);
+        for(int i = 0; i < n ; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------
+
+Ex. 2 -> Rotate Array
+~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Rotate_Array_02 {
+    public static void reverse(int[] arr , int low , int high) {
+        while(low < high) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+            low++;
+            high--;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        for(int i = 0; i < n ; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        int k = scn.nextInt();
+
+        k = k  % n;
+        if( k < 0 ) {
+            k = k + n;
+        }
+        reverse(arr , 0 , n - 1);
+        reverse(arr , 0 , k - 1);
+        reverse(arr , k , n - 1);
+
+        //System.out.println(Arrays.toString(arr));
+        for(int i = 0; i < n ; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+}
+
+i/p
+5
+1 2 3 4 5
+2
+
+o/p
+4 5 1 2 3 

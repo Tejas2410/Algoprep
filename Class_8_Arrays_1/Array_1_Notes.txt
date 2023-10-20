@@ -1,0 +1,207 @@
+						
+								Array 1
+								~~~~~~~
+Ex. 1 -> Sum of Array
+~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class SumOfArray_01 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int sum = 0;
+
+        int[] arr = new int[n];
+
+        for(int i = 0 ; i < arr.length ; i++) {
+            arr[i] = scn.nextInt();
+            sum += arr[i];
+        }
+        System.out.println(sum);
+    }
+}
+
+i/p
+5
+1 2 3 4 5
+
+o/p
+15 
+
+---------------------------------------------------------------------------------
+
+Ex. 2 -> Max of Array
+~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class MaxOfArray_02 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        int max = Integer.MIN_VALUE;
+
+        for(int i = 0 ; i < arr.length ; i++) {
+            arr[i] = scn.nextInt();
+            if(arr[i] > max)
+                max = arr[i];
+        }
+
+        System.out.println(max);
+    }
+}
+
+i/p
+5
+1 2 5 3 4
+
+o/p
+5
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ex. 3 -> Arrays Swap Indexes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArraySwapIndex_03 {
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+
+        for(int i = 0 ; i < arr.length ; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int  a = scn.nextInt();
+        int b = scn.nextInt();
+
+        int temp;
+
+        temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+
+           // System.out.println(Arrays.toString(arr));
+        for(int i = 0 ; i < arr.length ; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+i/p
+
+5
+1 2 3 4 5
+1 4
+
+o/p
+1 5 3 4 2 
+
+----------------------------------------------------------------------------------
+
+Ex. 4 -> Reverse Array
+~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Array_Reverse_04 {
+
+    public static void reverse(int[] arr) {
+        int low = 0; int high = arr.length - 1;
+        while(low<=high) {
+            int temp;
+
+            temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+
+            low++;
+            high--;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+
+        for(int i = 0 ; i < arr.length ; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        reverse(arr);
+
+
+        // System.out.println(Arrays.toString(arr));
+        for(int i = 0 ; i < arr.length ; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+i/p
+5
+1 2 3 4 5
+
+o/p
+5 4 3 2 1 
+----------------------------------------------------------------------------------
+
+Ex. 5 -> Largest Number At Least Twice
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class LargestNoAtleastTwice_05 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        int max = Integer.MIN_VALUE;
+        int maxIdx = 0;
+
+        for(int i = 0 ; i < arr.length ; i++) {
+            arr[i] = scn.nextInt();
+            if(arr[i] > max) {
+                maxIdx = i;
+                max = arr[i];
+            }
+        }
+
+
+        boolean flag = false;
+        for(int i = 0 ; i < arr.length ; i++) {
+            if(i == maxIdx) {
+                continue;
+            }
+            else if(arr[i] <= max/2) {
+                flag = true;
+            } else if(arr[i] > max/2){
+                flag = false;
+            }
+        }
+
+        if (flag == true) {
+            System.out.println(maxIdx);
+        } else {
+            System.out.println("-1");
+        }
+        }
+}
+
+i/p
+4
+1 2 1 4
+
+o/p
+3
+----------------------------------------------------------------------------------

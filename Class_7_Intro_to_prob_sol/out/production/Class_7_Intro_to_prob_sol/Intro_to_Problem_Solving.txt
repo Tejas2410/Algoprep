@@ -1,0 +1,188 @@
+
+Ex. 1 -> Count of factors of a given number
+
+complexity is O(n) -> [refer page 1 of notes]
+~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class NoOfFactor_01 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int fac = 0;
+
+        for(int i = 1 ; i <= n ; i++) {
+            if(n % i == 0) {
+                System.out.println(i);
+                fac++;
+            }
+        }
+        System.out.println("Total fac" + fac); // complexity is O(n)
+    }
+}
+--------------------------------------------------------------------------------------------------------
+
+complexity is O(sqrt(n)) -> refer page 4 (317 years to 10sec)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class NoOfFactor_01 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int fac = 0;
+
+        for(int i = 1 ; i * i <= n ; i++) {
+            if(n % i == 0) {
+                if(i == n/i)
+                    fac += 1;
+                else
+                    fac += 2;
+            }
+        }
+        System.out.println(fac); // complexity is O(sqrt(n))
+    }
+}
+
+// 24 -> 8 factors  // 36 -> 9 factor (6 is repeating) -> i == n/i
+// 1 * 24           // 1 * 36                             6 == 36/6 -> count = 1
+// 2 * 12           // 2 * 18
+// 3 * 7            // 3 * 12
+// 4 * 6            // 4 * 9
+                    // 6 * 6
+
+---------------------------------------------------------------------------------------------
+
+Ex. 2 -> IsPrime Optimal
+
+import java.util.Scanner;
+
+public class PrimeNo_02 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int fac = 0;
+
+        for(int i = 1 ; i * i <= n ; i++) {
+            if(n % i == 0) {
+                fac += 2;
+            }
+        }
+        if(fac == 2 && n != 1) {
+            System.out.println("Yay");//prime
+        } else {
+            System.out.println("Nay"); // not prime
+        }
+
+    }
+}
+
+//edge case is 1 is not a prime no.
+i/p
+1
+
+o/p
+not prime
+
+---------------------------------------------------------------------------------------------
+
+Ex. 3 : Sum of n natural no. -> Refer Page 8 for formula -. n*n+1 / 2 (Refer page 8)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ex : 5 -> 1+2+3+4+5 = 15
+
+import java.util.Scanner;
+
+public class SumOfNat_03 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int sum = 0;
+
+        sum = (n * (n + 1) )/ 2;
+        System.out.println(sum);
+    }
+}
+ i/p
+ 5
+
+ o/p 
+ 15
+
+ -> sum of n whole (0 to n-1) no. ex : 5 -> 0+1+2+3+4 = 10  formula : ((n - 1) * n)/ 2 (Page 9)
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class SumOfNat_03 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int sum = 0;
+
+        sum = (n * (n - 1 ))/ 2;
+        System.out.println(sum);
+    }
+}
+
+ i/p
+ 5
+ 
+ o/p 
+ 10
+
+ -----------------------------------------------------------------------------------------------
+
+Ex 4. You need to find the square root of a given number N. If N is not a perfect square,
+    then floor(√x) must be returned
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+import java.lang.Math;
+
+
+public class FloorNo {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        double n = scn.nextInt();
+        n = Math.sqrt(n);
+        Math.floor(n);
+        int x = (int) n;
+        System.out.println(x);
+
+    }
+}
+
+------------------------------------------------------------------------------------------
+import java.util.Scanner;
+        import java.lang.Math;
+
+
+
+public class FloorNo {
+    public static int sqrt(double n) {
+        int i = 1;
+        int ans = 0;
+        while( i * i <= n ) {
+            ans = i;
+            i++;
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        double n = scn.nextInt();
+        n = Math.floor(sqrt(n));
+        int x = (int) n;
+        System.out.println(x);
+
+    }
+}
+i/p
+101
+
+o/p
+10
+
+

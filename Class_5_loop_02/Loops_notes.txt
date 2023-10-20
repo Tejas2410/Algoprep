@@ -1,0 +1,101 @@
+
+																Loops Notes
+																~~~~~~~~~~~
+
+1. Reverse a number:
+~~~~~~~~~~~~~~~~~~~
+
+
+-> soln 1
+
+public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int rev = 0;
+        while(n != 0) {
+            int rem = n % 10;
+            rev = rev * 10 + rem;
+            n /= 10;
+        }
+        System.out.println(rev);
+    }
+
+
+-> soln 2
+
+public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        
+        while(n != 0) {
+            int rem = n % 10;
+            System.out.print(rem);
+            n /= 10;
+        }
+    }
+
+ i/p
+ 1234
+
+ o/p
+ 4321
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+2. Find Prime Number or Not:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-> soln 1
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int fac = 0;
+
+        for(int div = 1 ; div <= n ; div++) {
+            if(n % div == 0) {
+                fac++;
+            }
+        }
+
+        if(fac == 2) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
+    }
+
+i/p
+12
+
+o/p
+not prime
+
+
+-> soln 2
+
+		public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        boolean flag = false;
+
+        for(int div = 2 ; div * div <= n ; div++) {
+            if(n % div == 0) {
+                flag = true;
+                break;
+            }
+        }
+
+        if(flag == false) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
+    }
+
+i/p
+13
+
+o/p
+prime
+------------------------------------------------------------------------------------------------------------------------------

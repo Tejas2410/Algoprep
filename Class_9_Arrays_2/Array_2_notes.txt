@@ -1,0 +1,186 @@
+
+								Array 2
+								~~~~~~~
+Ex. 1 -> Reverse Part of Array from Start Index to End Index
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Program1 {
+    public static void reverse(int[] arr , int low , int high) {
+        while(low < high) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+            low++;
+            high--;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        for(int i = 0; i < n ; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int low = scn.nextInt();
+        int high = scn.nextInt();
+
+        reverse(arr , low , high);
+        for(int i = 0; i < n ; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+i/p
+5
+1 2 3 4 5
+1 3
+
+o/p
+1 4 3 2 5 
+----------------------------------------------------------------------------------
+
+Ex. 2 -> Rotate Array
+~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Rotate_Array_02 {
+    public static void reverse(int[] arr , int low , int high) {
+        while(low < high) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+            low++;
+            high--;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        for(int i = 0; i < n ; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        int k = scn.nextInt();
+
+        k = k  % n;
+        if( k < 0 ) {
+            k = k + n;
+        }
+        reverse(arr , 0 , n - 1);
+        reverse(arr , 0 , k - 1);
+        reverse(arr , k , n - 1);
+
+        //System.out.println(Arrays.toString(arr));
+        for(int i = 0; i < n ; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+}
+
+i/p
+5
+1 2 3 4 5
+2
+
+o/p
+4 5 1 2 3 
+-----------------------------------------------------------------------------------
+
+Ex. 3 : count total no. of elements in the array having atleast 1 element greater than itself
+
+// count max and subtract with array length
+
+import java.util.Scanner;
+
+public class Count_greater_03 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i < n ; i++) {
+            arr[i] = scn.nextInt();
+            if(arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        int count = 0;
+        for(int i = 0; i < n ; i++) {
+            if(arr[i] == max) {
+                count++;
+            }
+        }
+        System.out.println(arr.length - count);
+
+
+    }
+}
+
+i/p
+5
+1 2 5 4 5
+
+o/p
+3
+
+----------------------------------------------------------------------------------
+Refer -> Image 1
+
+Ex.4 -> Given n length array "arr" and an integer k, Check if there exists a pair
+(i,j) such that arr[i]+arr[j] == k and i!=j . Print true if there is a valid pair present else print false.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Program4 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+
+        for(int i = 0; i < n ; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int k = scn.nextInt();
+        boolean flag = false;
+        for(int i = 0; i < n - 1; i++) {
+            for(int j = i + 1 ; j < n ; j++) {
+                if(arr[i] + arr[j] == k){
+                    flag = true;
+                }
+            }
+        }
+        System.out.println(flag);
+
+    }
+}
+
+i/p
+5
+1 2 3 4 5
+9
+
+o/p
+true
+
+i/p
+5
+1 2 3 4 5
+10
+
+o/p
+false
+
+----------------------------------------------------------------------------------

@@ -1,0 +1,126 @@
+							
+									2D Array
+									~~~~~~~~
+
+Ex. 1 -> Given a 2D array, Print row wise integers.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+//Given a 2D array, Print row wise integers.
+public class TwoDArrayPrintRowWise_01 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        for(int i = 0 ; i < n ; i++) {
+            for (int j = 0; j < m ; j++) {
+                arr[i][j] = scn.nextInt();
+            }
+        }
+
+        for(int i = 0 ; i < n ; i++) {
+            for (int j = 0; j < m ; j++) {
+                System.out.print(arr[i][j] +" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+i/p
+3 3 
+1 2 3 4 5 6 7 8 9
+
+o/p
+1 2 3 
+4 5 6 
+7 8 9 
+-----------------------------------------------------------------------------------
+
+Ex. 2 -> Given a 2D array, Print col wise integers.
+
+import java.util.Scanner;
+
+public class TwoDArrayPrintColWise_01 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        for(int i = 0 ; i < n ; i++) {
+            for (int j = 0; j < m ; j++) {
+                arr[i][j] = scn.nextInt();
+            }
+        }
+        for(int j = 0; j < m ; j++) {
+            for(int i = 0; i < n ; i++) {
+                System.out.print(arr[i][j] +" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+i/p
+2 3
+1 2 3 4 5 6
+
+o/p
+1 4 
+2 5 
+3 6 
+-----------------------------------------------------------------------------------
+
+Ex. 3 -> Given a 2D array, Print integers in zig zag fashion.  
+
+-------> l to r
+<------  r to l
+-------> l to r
+<------  r to l
+
+import java.util.Scanner;
+
+public class TwoD_Array_Print_ZigZag_03 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+
+        int[][] arr = new int[n][m];
+
+        for(int i = 0 ; i < n ; i++) {
+            for (int j = 0; j < m ; j++) {
+                arr[i][j] = scn.nextInt();
+            }
+        }
+
+        for(int i = 0; i < n ; i++) {
+            if(i % 2 == 0) {
+                for(int j = 0 ; j < m ; j++) {
+                    System.out.print(arr[i][j] +" ");
+                }
+            } else {
+                for(int j = m - 1 ; j >= 0 ; j--) {
+                    System.out.print(arr[i][j] +" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+i/p
+3 3 
+1 2 3 4 5 6 7 8 9
+
+o/p
+1 2 3 
+6 5 4 
+7 8 9 
+-------------------------------------------------------------------------------
