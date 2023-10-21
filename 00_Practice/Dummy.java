@@ -3,14 +3,20 @@ import java.util.Scanner;
 public class Dummy {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
-        long n = scn.nextLong();
-        int fac = 0;
+        int num = scn.nextInt();
+        boolean flag = true;
 
-        for(long i = 1 ; i <= n ; i++) {
-            if(n % i == 0) {
-                fac++;
+        for(int div = 2 ; div * div <= num ; div++) {
+            if(num % div == 0) {
+                flag = false;
+                break;
             }
         }
-        System.out.println("Total fac " + fac); // complexity is O(n)
+
+        if(flag == true) {
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not Prime");
+        }
     }
 }
