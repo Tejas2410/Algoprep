@@ -24,3 +24,4 @@ public class nCr_02 {
 }
 // nCr = n! / r! * (n - r)!
 // nPr = n! / (n - r)!
+//kkkkkkkk
