@@ -1,0 +1,171 @@
+						
+
+												Recursion 1
+												~~~~~~~~~~~
+Ex. 1 -> Found Recursion Sum:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+
+public class Sum_01 {
+
+    public static int sum(int n){
+        if(n == 1) {
+            return 1;
+        }
+
+        int temp = sum(n - 1);
+        return temp + n;
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        System.out.println(sum(n));
+    }
+}
+
+i/p
+5
+
+o/p
+15
+--------------------------------------------------------------------------------------------------------------------
+
+Ex. 2 -> Found Recursion Factorial:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Factorial_02 {
+    public static int fact(int n) {
+        if( n == 1) {
+            return 1;
+        }
+        int factnm1 = fact( n - 1 );
+        return  factnm1 * n;
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+
+        System.out.println(fact(n));
+    }
+}
+
+i/p
+5
+
+o/p
+120
+-------------------------------------------------------------------------------------------------------------------
+
+Ex. 3 -> Found Recursion Fibonacci number:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Fibonacci_03 {
+    public static int fib(int n) {
+
+        if(n == 0 || n == 1) {
+           return n;
+        }
+        int temp1 = fib(n - 1);
+        int temp2 = fib(n - 2);
+        return temp1 + temp2;
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        System.out.println(fib(n));
+    }
+}
+
+i/p
+10
+
+o/p
+55
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+Ex. 4 -> Found Recursion Print Increasing:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Print_Increasing_04 {
+    public static void printinc(int n) {
+//        if(n == 0){
+//            return;
+//        }
+
+        if(n == 1){
+            System.out.println(n);
+            return;
+        }
+        printinc(n - 1);
+        System.out.println(n);
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        // return type as void to print many values ex. 1 2 3 4 5
+        printinc(n);
+    }
+}
+
+i/p
+5
+
+o/p
+1
+2
+3
+4
+5
+
+-------------------------------------------------------------------------------------------------------------------
+
+Ex. 4 -> Found Recursion Print Decreasing HW:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Print_Decreasing_05 {
+    public static void printDec(int n) {
+
+        if(n == 0) {
+            return;
+        }
+
+        System.out.println(n);
+        printDec(n - 1);
+
+    }
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        printDec(n);
+
+    }
+}
+
+i/p
+5
+
+o/p
+5
+4
+3
+2
+1
+-------------------------------------------------------------------------------------------------------------------

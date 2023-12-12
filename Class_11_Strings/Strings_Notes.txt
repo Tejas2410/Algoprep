@@ -1,10 +1,26 @@
 
 // string input -> String str = scn.nextLine(); -> full line
-				  String str = scn.next(); -> till space
+		   String str = scn.next(); -> till space
 
 
 // char input -> char ch = scn.nextLine().chatAt(0);
 
+// 65 - 90 A - Z
+// 97 -> a
+// 48 -> 0
+
+// String to char Array
+// char[] ch = str.toCharArray();
+
+----------------------------------------------------------
+// add char at end of string
+
+//char ch = {a , b , c , d };
+// String ans = "";
+
+//for(int i = 0 ; i < ch.length ; i++) {
+//	ans += ch[i]; //abcd
+//}
 
 Typecasting in char
 ~~~~~~~~~~~~~~~~~~~
@@ -95,4 +111,91 @@ sajet
 
 Ex. 3 -> Found String Insert Difference HW
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.Take as input String.
+
+Write a code that inserts between each pair of characters the difference
+between their ascii codes. Print the final string.
+
+Note: You can use adding at the end of the string
+
+Example:
+
+Input:
+abfk
+
+output
+a1b4f5k
+
+1 = b-a
+4 = f-b
+5 = k-f
+
+import java.util.Scanner;
+
+public class Dummy {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String str = scn.next();
+
+        char[] ch = str.toCharArray();
+
+        
+	System.out.println(diff(ch));
+
+        }
+
+    public static String diff(char[] ch) {
+        String ans = "";
+        for(int i = 0 ; i < ch.length ; i++) {
+
+            ans += ch[i];
+            if (i < ch.length - 1) {
+                int dif = ch[i + 1] - ch[i];
+                ans += dif;
+
+            }
+        }
+        return ans;
+    }
+}
+
+i/p
+acd
+
+o/p
+a2c1d
+
+import java.util.Scanner;
+
+public class Dummy {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String str = scn.next();
+
+        System.out.println(diff(str));
+
+    }
+
+    public static String diff(String str) {
+        int n = str.length();
+        String ans = "";
+        for(int i = 0 ; i < n - 1 ; i++) {
+            ans += str.charAt(i);
+            int temp = str.charAt(i + 1) - str.charAt(i);
+                ans += temp;
+        }
+        ans += str.charAt(n - 1);
+        return ans;
+    }
+}
+
+i/p
+acd
+
+o/p
+a2c1d
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 

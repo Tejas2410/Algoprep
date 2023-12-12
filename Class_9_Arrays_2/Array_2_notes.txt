@@ -183,4 +183,121 @@ i/p
 o/p
 false
 
-----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+
+HW 1 : Given n length array "arr". Find the pair with maximum value of arr[i] - arr[j]. You need to print max value of (arr[i] - arr[j]) possible and not the (i,j) itself.
+
+Note: Doing it by checking all the possible pairs. Works but can you do something smart?
+
+import java.util.Scanner;
+import java.lang.*;
+
+public class Found_Arrays2_Max_Difference_1_HW_05 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0 ; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int max = Integer.MIN_VALUE;
+        for(int i = 0 ; i < n ; i++) {
+            for(int j = 0 ; j < n ; j++) {
+                if(arr[i] != arr[j] && arr[i] - arr[j] > max){
+                    max = arr[i] - arr[j];
+                }
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------
+ HW 2 : Given n length array "arr". Find (i,j) with maximum value of arr[i] - arr[j] + i - j.
+You need to print max value of (arr[i] - arr[j] + i - j) possible and not the (i,j) itself.
+
+Note: Doing it by checking all the possible pairs. Works but can you do something smart?
+
+import java.util.Scanner;
+
+public class Found_Arrays2_Max_Difference_2_HW_06 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0 ; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int max = Integer.MIN_VALUE;
+        for(int i = 0 ; i < n ; i++) {
+            for(int j = 0 ; j < n ; j++) {
+                if(arr[i] != arr[j] && (arr[i] - arr[j] + i - j) > max){
+                    max = arr[i] - arr[j] + i - j;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------
+
+ HW 3 : Given n length array "arr". Find (i,j) with maximum value of arr[i] - arr[j] + j - i. 
+ You need to print max value of (arr[i] - arr[j] + j - i) possible and not the (i,j) itself.
+
+Note: Doing it by checking all the possible pairs. Works but can you do something smart?
+
+import java.util.Scanner;
+
+public class Found_Arrays2_Max_Difference_3_HW_07 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0 ; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int max = Integer.MIN_VALUE;
+        for(int i = 0 ; i < n ; i++) {
+            for(int j = 0 ; j < n ; j++) {
+                if(arr[i] != arr[j] && (arr[i] - arr[j] + j - i) > max){
+                    max = arr[i] - arr[j] + j - i;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+HW 4 : Given n length array "arr". Find (i,j) with maximum value of (abs(arr[i] - arr[j]) + i - j). You need to print max value of (abs(arr[i] - arr[j]) + i - j) possible and not the (i,j) itself.
+
+Note 1: abs represents the postive part only. ex: abs(8) = 8 and abs(-8) = 8.
+
+Note 2: Doing it by checking all the possible pairs. Works but can you do something smart?
+
+
+import java.util.Scanner;
+
+public class Found_Arrays2_Max_Difference_4_HW_08 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0 ; i < n; i++) {
+            arr[i] = scn.nextInt();
+        }
+        int max = Integer.MIN_VALUE;
+        for(int i = 0 ; i < n ; i++) {
+            for(int j = 0 ; j < n ; j++) {
+                if(arr[i] != arr[j] && Math.abs(arr[i] - arr[j]) + j - i > max){
+                    max = Math.abs(arr[i] - arr[j]) + j - i ;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------

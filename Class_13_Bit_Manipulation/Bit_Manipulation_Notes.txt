@@ -1,0 +1,90 @@
+
+
+Ex. 1 -> Found_BITS_IsEven
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Found_BITS_IsEven_01java {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        String ans = isEven(n);
+        System.out.println(ans);
+    }
+
+    public static String isEven(int n) {
+        if((n & 1) == 0){
+            return "even";
+        } else {
+            return "odd";
+        }
+    }
+}
+
+o/p
+11
+odd
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ex. 2 -> Found_BITS_1_SingleNumber
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import java.util.Scanner;
+
+public class Found_BITS_SingleNumber_02 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int[] arr = new int[n];
+
+        for(int i = 0 ; i < n ; i++) {
+            arr[i] = scn.nextInt();
+        }
+
+        int ans = findSingleNumber(arr);
+        System.out.println(ans);
+
+    }
+
+    public static int findSingleNumber(int[] arr) {
+        int ans = 0;
+        for(int i = 0; i < arr.length ; i++) {
+            ans = ans ^ arr[i]; // N ^ 0 = N
+        }
+        return ans;
+    }
+}
+
+o/p
+
+Input: nums = [4,1,2,1,2]
+Output: 4
+
+
+Ex. 3 -> Found_BITS_Bit_set_on_HW_03
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Solution video -> https://www.youtube.com/watch?v=KbBxyfAfWLA
+// Toggle (set ko unset , unset ko set  use xor)-> int ans = n ^ (1 << k);
+import java.util.Scanner;
+
+public class Found_BITS_Bit_set_on_HW_03 {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int k = scn.nextInt();
+
+        int ans = n | (1 << k); // kth unset bit ko set krna hai , 1 ko kth position per le jau from right
+        System.out.println(ans);
+    }
+}
+
+16 -> 10000 -> o/p -> 11000 = 24
+o/p
+16
+3
+24
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
